@@ -9,7 +9,8 @@ import numpy as np
 import scipy.stats as stats
 from datetime import datetime
 
-
+# For now, users should replace the directory with a directory to a file that has an indicator column (before the year columns),
+# a country column, and a set of year columns (preferably ordered, and after the indicator column).
 data_file = 'C:/Users\justi\OneDrive\Documents\Volunteering\APDREO_07-18-2024 19-58-59-47_timeSeries.csv'
 data_set = pnd.read_csv(data_file)
 
@@ -114,8 +115,6 @@ Data should be made such that:
 
 """
 
-## Note to self: Use anaconda or another
-## OS to test programs on
 
 # Convert countries to variables
 def name_convert(name):
