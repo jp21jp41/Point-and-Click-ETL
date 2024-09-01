@@ -1,5 +1,5 @@
 # Creating a Statistical Result Table from a Point-and-Click Interface
-# Version 1.1.3: Tkinter uploader
+# Version 1.1.5: Tkinter uploader
 # Justin Pizano
 
 
@@ -21,7 +21,7 @@ multi-column, and to list those columns to be submitted.
 """
 frame = tk.Tk()
 frame.title("Data Creation")
-frame.geometry('400x200')
+frame.geometry('800x200')
 
 
 """
