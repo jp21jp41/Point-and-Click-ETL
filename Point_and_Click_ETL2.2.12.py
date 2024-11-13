@@ -4,6 +4,7 @@ Version 2.2.12
 Justin Pizano
 """
 
+# Import Libraries
 import pandas as pnd
 import math
 import tkinter as tk
@@ -21,6 +22,7 @@ multi-column, and to list those columns to be submitted.
 
 """
 
+# Instantiating GUI with title and geometry
 frame = tk.Tk()
 frame.title("Data Creation")
 frame.geometry('800x400')
@@ -36,7 +38,8 @@ def prepend(the_item, the_list):
     for item in the_list:
         itemlist.append(item)
     return(itemlist)
-            
+
+# Function that removes commas from strings such that its values can be inserted (to be amended).
 def execString(the_string):
     if "'" in the_string:
         new_string = the_string[
@@ -52,6 +55,26 @@ The MultiData class helps instantiate the tkinter GUI's.
 """
 
 class MultiData():
+    """
+    Variables:
+    - raw_name: the name of the MultiData object (to go through treeview insertion)
+    - tkwindow: the current tkinter window used
+    - label_opt_set: dictionary of a stored label option set
+    - row_assets: dictionary of row assets
+    - columns: List of columns from the dataset
+    - value_index: Dictionary of values to store, then reference for row deletion.
+    - total: values of counts to help position rows when creating/deleting them
+    - count: values to be counted to create assets
+    - final_count: the end of the count of assets
+    - data: the original dataset added
+    - true_data: the dataset formatted into a dictionary of its original form
+    - data_edit: the dataset formatted into a dictionary of categorical rows, 
+    categorical columns, quantitative rows, and quantitative columns (to be amended)
+    - submit_check: a more digestible form of the label option set
+    - name_hierarchy: names to be taken and used when deciding treeview format (to be amended)
+    - comparisons: a dictionary of the comparisons made to be statistically tested
+    
+    """
     def __init__(self, raw_name, tkwindow, count = 1, final_count = 4):
         self.raw_name = raw_name
         self.tkwindow = tkwindow
@@ -68,9 +91,6 @@ class MultiData():
         self.submit_check = []
         self.name_hierarchy = {}
         self.comparisons = {}
-        self.treeview_set = {}
-        self.treeview_counts = {}
-        self.tree_accumulator = ''
         
     def createNameHierarchy(self):
         for item in self.data_edit:
@@ -223,7 +243,6 @@ class MultiData():
             nested_str = ''
             for value in self.data_edit:
                 value_nums = [x for x in np.arange(0, len(self.data_edit[value]))]
-                value_count = len(self.treeview_counts)
                 edit_count = 0
                 for number in value_nums:
                     value_point = self.data_edit[value][number][num]
