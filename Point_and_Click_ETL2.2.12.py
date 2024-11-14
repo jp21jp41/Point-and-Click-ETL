@@ -91,7 +91,9 @@ class MultiData():
         self.submit_check = []
         self.name_hierarchy = {}
         self.comparisons = {}
-        
+
+
+    # Function to create a "name hierarchy"
     def createNameHierarchy(self):
         for item in self.data_edit:
             if item == 'qtv_rows':
@@ -130,10 +132,18 @@ class MultiData():
                         self.name_hierarchy.update({'cat_cols' : [self.data_edit['cat_cols'][point].name]})
             
         return
-        
+    
+    # Function to create a dataset (necessary for the class designed)
+    # data: the data
     def addData(self, data):
         self.data = data
-    
+
+    """
+    Function to create a set of buttons to be added to the tkinter interface
+    - count: the count of the assets instantiated
+    - final_count: the end of said count
+    - data_columns: the columns to be parsed (to be amended)
+    """
     def counts(self, count, final_count, data_columns):
         none_button = tk.Button(
             self.tkwindow, text = "None", 
@@ -163,7 +173,12 @@ class MultiData():
             return
         self.counts(count + 1, final_count - 1, init_column)
     
-    
+    """
+    Function to add a row of the selected options
+    - value: the row value
+    - count: the column count
+    - shift: the movement of the row such that it should be able to match with the positioning of the given rows
+    """
     def newRow(self, value, count, shift = 4):
         self.columns.remove(value)
         self.replace_column(self.count, self.final_count, self.columns)
@@ -180,6 +195,12 @@ class MultiData():
         self.value_index[count].update({value : self.total[count]})
         self.total[count] += 1
         
+
+    """
+    Function to delete specific rows
+    - value: the row value
+    - count: the column count
+    """
     def deleteRow(self, value, count):
         self.columns.append(value)
         self.replace_column(self.count, self.final_count, self.columns)
@@ -200,7 +221,14 @@ class MultiData():
                 self.row_assets[count][entry][1].grid(
                     row = new_row, column = 2*count - 1)
                 self.value_index[count][entry] -= 1
-        
+
+
+    """
+    Function to replace columns:
+    - count: the column count
+    - final_count: the end of the columns
+    - new_column: the column that replaces the former
+    """
     def replace_column(self, count, final_count, new_column):
         if len(self.label_opt_set[count]) != 5:
             self.label_opt_set[count][2].grid_forget()
@@ -214,14 +242,26 @@ class MultiData():
         self.replace_column(count + 1, final_count - 1, new_column)
         
     
-    
+    """
+    Function to create column variables
+    - result: the result to be added
+    - count: the column count
+    """
     def columnVar(self, result, count):
         self.label_opt_set[count][4] = result
-    
+
+    # Test function to be amended (we can make it to the point of submitting statistical comparisons with enough effort given the point-and-click system)
     def data_submission(self, the_string, lost_point, previous_tree):
         print('Passed Data Submission Checkpoint')
         self.comparisons.update({lost_point : previous_tree})
-    
+
+
+    """
+    Function to instantiate treeview(s)
+    - the_string: essentially, a string that helps submit data and insert treeview nodes through concatenation
+    - lost_point: a type of string that increments to create new trees
+    - previous_tree: the previous tree (to determine how to create the new tree)
+    """
     def to_treeview(self, the_string, lost_point = '00', previous_tree = None):
         if previous_tree != None:
             item = previous_tree.selection()[0]
