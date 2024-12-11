@@ -1,4 +1,4 @@
-# Point-and-Click ETL (Defunct)
+# Point-and-Click ETL (Defunct) (Not Implementable)
 (Renamed from Data_Results_Creation)
 Coded using Python, the project is for the creation of statistical tests through a point-and-click system that allows users the ability to access given parameters (i.e. Data Columns) to allow the data to be taken into a testable format. The user is then allowed to select data to compare using statistical tests to be made into a data table.
 The process is currently at step 2.2.1, and there are issues to be fixed with this new version of said project.
