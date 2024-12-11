@@ -22,4 +22,4 @@ The process is currently at step 2.2.1, and there are issues to be fixed with th
 - Once done with the second section, select "Quantitative Rows" or "Quantitative Columns" (to be patched) then press the "Continue" button, which will take you to the treeview interface.
 - The GUI functionality concludes with two treeviews that have selectable options for the time being.
 
-Note that the project only has one developer, so it takes time to make improvements. That also means the limitations are bound to said one developer. Notes on the project have been updated, and it will be considered a priority.
+Note that the project only has one developer, so it takes time to make improvements. That also means the limitations are bound to said one developer.
