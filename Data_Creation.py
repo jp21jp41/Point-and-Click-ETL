@@ -10,7 +10,7 @@ import scipy.stats as stats
 from datetime import datetime
 
 print('Input your data file')
-data_file = 'C:/Users\justi\OneDrive\Documents\Volunteering\APDREO_07-18-2024 19-58-59-47_timeSeries.csv'
+data_file = '~\APDREO_07-18-2024 19-58-59-47_timeSeries.csv'
 data_set = pnd.read_csv(data_file)
 
 # Function to create a list
@@ -484,5 +484,6 @@ def clickstorage(event, selection1, selection1string, selection2, selection2stri
 
 # run the app
 root.mainloop()
+
 
 
